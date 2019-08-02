@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/primary">
+        <item
+            android:id="@id/blue_graph"
+            android:icon="@drawable/ic_home"
+            android:title="@string/blue" />
+        <item
+            android:id="@id/orange"
+            android:icon="@drawable/ic_account_balance_wallet"
+            android:title="@string/orange" />
+        <item
+            android:id="@id/purple"
+            android:icon="@drawable/ic_payment"
+            android:title="@string/purple" />
+        <item
+            android:id="@id/green"
+            android:icon="@drawable/ic_compare_arrows"
+            android:title="@string/green" />
+        <item
+            android:id="@id/white"
+            android:icon="@drawable/ic_help_outline"
+            android:title="@string/white" />
+    </group>
+</menu>

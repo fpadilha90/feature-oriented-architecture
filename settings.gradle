@@ -1,0 +1,1 @@
+include ':app', ':common', ':data', ':feature_blue', ':feature_orange', ':feature_purple', ':feature_green', ':dynamic_feature'

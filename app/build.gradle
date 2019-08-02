@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+apply from: "$rootDir/common-dependencies.gradle"
+apply from: "$rootDir/common-proguard-rules.gradle"
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    defaultConfig {
+        applicationId globalConfiguration["applicationId"]
+        versionCode globalConfiguration["versionMajor"] * 1000000 + globalConfiguration["versionMinor"] * 1000 + globalConfiguration["versionPatch"]
+        versionName "${globalConfiguration["versionMajor"]}.${globalConfiguration["versionMinor"]}.${globalConfiguration["versionPatch"]}"
+        multiDexEnabled = true
+    }
+
+//    signingConfigs {
+//        release {
+//            storeFile file('keystore.jks')
+//            storePassword '@Original2019'
+//            keyAlias 'Original'
+//            keyPassword '@Original2019'
+//        }
+//    }
+    buildTypes {
+        release {
+//            shrinkResources true //Can't be used with dynamic feature yet
+//            signingConfig signingConfigs.release
+        }
+    }
+    dynamicFeatures = [":dynamic_feature"]
+
+    flavorDimensions "repository"
+    productFlavors {
+        mock {
+            dimension "repository"
+            applicationIdSuffix ".mock"
+            versionNameSuffix "-mock"
+        }
+        integration {
+            dimension "repository"
+
+        }
+    }
+}
+
+dependencies {
+    implementation project(':feature_blue')
+    implementation project(':feature_orange')
+    implementation project(':feature_purple')
+    implementation project(':feature_green')
+
+    implementation project(':data')
+}

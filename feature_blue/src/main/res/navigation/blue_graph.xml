@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/blue_graph"
+    app:startDestination="@id/blueFragment">
+
+    <activity
+        android:id="@+id/blueFlowActivity"
+        android:name="com.example.feature_blue.ui.BlueFlowActivity"
+        tools:layout="@layout/activity_feature_blue"/>
+    <fragment
+        android:id="@+id/blueFragment"
+        android:name="com.example.feature_blue.ui.feature_blue.BlueFragment"
+        android:label="@string/blue"
+        tools:layout="@layout/fragment_feature_blue">
+        <action
+            android:id="@+id/action_blueFragment_to_genericErrorFragment"
+            app:destination="@id/commonErrorFragment" />
+        <action
+            android:id="@+id/action_blueFragment_to_blueFlowActivity"
+            app:destination="@id/blueFlowActivity" />
+        <action
+            android:id="@+id/action_blueFragment_to_purple"
+            app:destination="@id/purple" />
+    </fragment>
+    <fragment
+        android:id="@+id/commonErrorFragment"
+        android:name="com.example.common.ui.CommonErrorFragment"
+        android:label="@string/error"
+        tools:layout="@layout/fragment_generic_error"/>
+    <fragment
+        android:id="@+id/purple"
+        android:name="com.example.feature_purple.ui.PurpleFragment"
+        android:label="@string/purple"
+        tools:layout="@layout/fragment_purple" />
+</navigation>

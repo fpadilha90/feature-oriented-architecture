@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/blue_flow_graph"
+    app:startDestination="@id/firstBlueFlowFragment">
+
+    <fragment
+        android:id="@+id/secondBlueFlowFragment"
+        android:name="com.example.feature_blue.ui.second.SecondBlueFlowFragment"
+        android:label="SecondBlueFlowFragment"
+        tools:layout="@layout/fragment_second_blue_flow">
+        <action
+            android:id="@+id/action_secondBlueFlowFragment_to_fourthBlueFlowFragment"
+            app:destination="@id/fourthBlueFlowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdBlueFlowFragment"
+        android:name="com.example.feature_blue.ui.third.ThirdBlueFlowFragment"
+        android:label="ThirdBlueFlowFragment"
+        tools:layout="@layout/fragment_third_blue_flow">
+        <action
+            android:id="@+id/action_thirdBlueFlowFragment_to_fourthBlueFlowFragment"
+            app:destination="@id/fourthBlueFlowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourthBlueFlowFragment"
+        android:name="com.example.feature_blue.ui.fourth.FourthBlueFlowFragment"
+        android:label="FourthBlueFlowFragment"
+        tools:layout="@layout/fragment_fourth_blue_flow" />
+    <fragment
+        android:id="@+id/firstBlueFlowFragment"
+        android:name="com.example.feature_blue.ui.first.FirstBlueFlowFragment"
+        android:label="FirstBlueFlowFragment"
+        tools:layout="@layout/fragment_first_blue_flow">
+        <action
+            android:id="@+id/action_firstBlueFlowFragment_to_thirdBlueFlowFragment"
+            app:destination="@id/thirdBlueFlowFragment" />
+        <action
+            android:id="@+id/action_firstBlueFlowFragment_to_secondBlueFlowFragment"
+            app:destination="@id/secondBlueFlowFragment" />
+    </fragment>
+</navigation>

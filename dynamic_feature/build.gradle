@@ -1,0 +1,20 @@
+apply plugin: 'com.android.dynamic-feature'
+apply from: "$rootDir/common-dependencies.gradle"
+
+android {
+    flavorDimensions "repository"
+    productFlavors {
+        mock {
+            dimension "repository"
+
+        }
+        integration {
+            dimension "repository"
+
+        }
+    }
+}
+
+dependencies {
+    implementation project(':app')
+}

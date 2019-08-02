@@ -1,0 +1,61 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["targetSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["minSdkVersion"]
+        targetSdkVersion globalConfiguration["targetSdkVersion"]
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "HOST", "\"\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "repository"
+    productFlavors {
+        mock {
+            dimension "repository"
+
+        }
+        integration {
+            dimension "repository"
+
+            buildConfigField "String", "HOST", "\"http://www.google.com\""
+        }
+    }
+}
+
+dependencies {
+    implementation project(':common')
+    implementation project(':feature_blue')
+    implementation project(':feature_orange')
+    implementation project(':feature_purple')
+    implementation project(':feature_green')
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$rootProject.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$rootProject.retrofitCoroutinesVersion"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+//    junit      : "junit:junit:${jUnitVersion}",
+//    assertj    : "org.assertj:assertj-core:${assertJVersion}",
+//    mockito    : "org.mockito:mockito-core:${mockitoVersion}",
+//    robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+//    archTesting: "android.arch.core:core-testing:${archExtensionsVersion}"
+}

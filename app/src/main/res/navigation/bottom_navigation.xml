@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/blue_graph">
+    <fragment
+        android:id="@+id/orange"
+        android:name="com.example.feature_orange.ui.OrangeFragment"
+        android:label="@string/orange"
+        tools:layout="@layout/fragment_orange"/>
+    <fragment
+        android:id="@+id/purple"
+        android:name="com.example.feature_purple.ui.PurpleFragment"
+        android:label="@string/purple"
+        tools:layout="@layout/fragment_purple"/>
+    <fragment
+        android:id="@+id/green"
+        android:name="com.example.feature_green.ui.GreenFragment"
+        android:label="@string/green"
+        tools:layout="@layout/fragment_green" />
+    <fragment
+        android:id="@+id/white"
+        android:name="com.example.app.ui.AppFragment"
+        android:label="@string/white"
+        tools:layout="@layout/fragment_app" >
+        <action
+            android:id="@+id/action_white_to_navigation"
+            app:destination="@id/navigation" />
+    </fragment>
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/secondAppFragment">
+        <fragment
+            android:id="@+id/secondAppFragment"
+            android:name="com.example.app.ui.SecondAppFragment"
+            android:label="@string/white"
+            tools:layout="@layout/fragment_second_app">
+            <action
+                android:id="@+id/action_secondAppFragment_to_genericErrorFragment"
+                app:destination="@+id/commonErrorFragment"
+                app:launchSingleTop="false" />
+            <action
+                android:id="@+id/action_secondAppFragment_to_blue_graph"
+                app:destination="@id/blue_graph"
+                app:popUpTo="@+id/blue_graph"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/commonErrorFragment"
+            android:name="com.example.common.ui.CommonErrorFragment"
+            android:label="@string/error"
+            tools:layout="@layout/fragment_generic_error" />
+    </navigation>
+    <include app:graph="@navigation/blue_graph" />
+</navigation>

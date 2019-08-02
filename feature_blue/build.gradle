@@ -1,0 +1,7 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/common-dependencies.gradle"
+apply from: "$rootDir/common-proguard-rules.gradle"
+
+dependencies {
+    implementation project(':feature_purple')
+}

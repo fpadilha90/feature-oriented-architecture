@@ -1,0 +1,87 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // Kotlin
+    api "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlinVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.kotlinCoroutinesVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.kotlinCoroutinesVersion"
+    api "androidx.core:core-ktx:$rootProject.ktxCoreVersion"
+
+    // Koin
+    api "org.koin:koin-android:$rootProject.koinVersion"
+    api "org.koin:koin-androidx-viewmodel:$rootProject.koinVersion"
+
+    //View
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.appCompatVersion"
+    implementation "androidx.cardview:cardview:$rootProject.cardViewVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archComponentsVersion"
+
+    // BaseRecyclerView
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.baseRecyclerviewVersion"
+
+    // Navigation
+    implementation "android.arch.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    testImplementation 'junit:junit:4.12'
+//    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version",
+//    testImplementation "org.assertj:assertj-core:${assertJVersion}"
+//    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.1.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+//    junit      : "junit:junit:${jUnitVersion}",
+//    assertj    : "org.assertj:assertj-core:${assertJVersion}",
+//    mockito    : "org.mockito:mockito-core:${mockitoVersion}",
+//    robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+//    archTesting: "android.arch.core:core-testing:${archExtensionsVersion}"
+
+//    //Unit/Integration tests dependencies
+//    testImplementation unitTestDependencies.kotlin
+//    testImplementation unitTestDependencies.kotlinTest
+//    testImplementation unitTestDependencies.robolectric
+//    testImplementation unitTestDependencies.junit
+//    testImplementation unitTestDependencies.mockito
+//    testImplementation unitTestDependencies.kluent
+//
+//    //Acceptance tests dependencies
+//    androidTestImplementation acceptanceTestDependencies.testRunner
+//    androidTestImplementation acceptanceTestDependencies.testRules
+//    androidTestImplementation acceptanceTestDependencies.espressoCore
+//    androidTestImplementation acceptanceTestDependencies.espressoIntents
+//    androidTestImplementation acceptanceTestDependencies.androidAnnotations
+}
