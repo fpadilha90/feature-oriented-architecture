@@ -31,5 +31,6 @@ class FirstBlueFlowFragment : Fragment() {
             findNavController().navigate(FirstBlueFlowFragmentDirections.actionFirstBlueFlowFragmentToThirdBlueFlowFragment())
             true
         }
+        //TODO: desenvolver uma forma melhor de exibir o fragmento
     }
 }

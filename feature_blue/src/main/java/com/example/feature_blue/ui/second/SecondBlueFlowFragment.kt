@@ -19,6 +19,8 @@ class SecondBlueFlowFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_second_blue_flow, container, false)
     }
 
+    //TODO: desenvolver uma forma melhor de exibir o fragmento
+    //TEste
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
