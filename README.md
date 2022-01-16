@@ -1,7 +1,3 @@
-//TODO: test
-Conflitou???
-Sei la!
-
 2	Multi-Module Architecture
 O modelo desta estrutura foi baseada no conceito de arquitetura multi-modular, onde se faz claro a divisão de responsabilidades por módulos e camadas. 
  
