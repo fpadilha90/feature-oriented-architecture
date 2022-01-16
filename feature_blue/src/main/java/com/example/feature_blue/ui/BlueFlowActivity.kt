@@ -10,4 +10,6 @@ class BlueFlowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feature_blue)
     }
+
+    //TODO: desenvolver uma forma melhor de exibir o fragmento
 }

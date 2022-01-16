@@ -9,6 +9,10 @@ import org.koin.dsl.module
 object BlueInject {
     fun modules(): List<Module> = listOf(viewModelModule, useCaseModule)
 
+    private val viewModelModule: Module = module {
+        viewModel { BlueViewModel(get()) }
+    }
+
     //TODO: desenvolver uma forma melhor de exibir o fragmento
     //TEste
     //Injeção
